@@ -22,7 +22,6 @@
       align-items: center;
     }
     .filterList{
-      /* margin-left:auto; */
       margin-left: auto;
       display: flex;
       justify-content: flex-end;
@@ -38,7 +37,7 @@
 
   <main class="filteredList">
     <div>
-      <span v-for = "filter in appliedFilters" class="badge">{{filter}}</span>
+      <span v-for = "filter in appliedFilters" class="badge">{{filter}}<button @click = "removeFilter(filter)">X</button></span>
     </div>
     <div v-for="job in filteredJobs" class="card">
       {{job.company}}

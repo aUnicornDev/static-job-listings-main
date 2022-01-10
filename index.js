@@ -26,6 +26,12 @@ const jobList = {
             if(!this.appliedFilters.includes(filter)){
                 this.appliedFilters.push(filter)
             }
+        },
+        removeFilter(filter){
+            
+            
+            this.appliedFilters.pop(filter)
+            
         }
 
     }
