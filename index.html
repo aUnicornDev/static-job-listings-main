@@ -7,31 +7,9 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
   <title>Frontend Mentor | Job Listings</title>
+  <link rel="stylesheet" href="./style.css">
+  
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-    .card{
-      height:50px;
-      background-color: azure;
-      margin: 10px;
-      display: flex;
-
-      padding: 0 10px;
-      align-items: center;
-    }
-    .filterList{
-      margin-left: auto;
-      display: flex;
-      justify-content: flex-end;
-    }
-    .badge{
-      margin:0 10px;
-      background-color: rgb(209, 186, 231);
-      padding: 3px 5px;
-    }
-  </style>
 </head>
 <body>
 
@@ -40,9 +18,41 @@
       <span v-for = "filter in appliedFilters" class="badge">{{filter}}<button @click = "removeFilter(filter)">X</button></span>
     </div>
     <div v-for="job in filteredJobs" class="card">
-      {{job.company}}
-      <div  class= "filterList">
-        <span v-for="filter in job.filters" class = "badge" @click = "applyFilter(filter)">{{filter}}</span>
+      <div class="card__content">
+        <div class="card__prefix">
+
+          <h3 class="company">
+            {{job.company}}
+          </h3>
+          <div class="badge badge--new">
+            New!
+          </div>
+          <div class="badge badge--featured">
+            Featured
+          </div>
+        </div>
+        <h2 class="card__title">
+          {{job.position}}
+        </h2>
+        <div class="card__subtitle">
+          <p>
+            {{job.postedAt}}
+
+          </p>
+          <p>
+            {{job.contract}}
+
+          </p>
+          <p>
+            {{job.location}}
+
+          </p>
+        </div>
+      </div>
+      
+     
+      <div class= "card__filters">
+        <span v-for="filter in job.filters" class = "btn__filter" @click = "applyFilter(filter)">{{filter}}</span>
       </div>
     </div>
   </main>

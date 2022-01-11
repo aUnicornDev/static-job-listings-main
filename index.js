@@ -38,6 +38,7 @@ const jobList = {
     ,
     computed:{
         addJobFilters(){
+            console.log(this.jobs)
             this.jobs.forEach(job=>{
                 job.filters = [];
                 job.filters.push(job.role);

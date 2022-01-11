@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap');
+
+:root{
+    --primary-color:hsla(180, 29%, 50%, 1);
+    --secondary-color:hsla(180, 31%, 95%, 1);
+    --primary-text-color:hsla(180, 14%, 20%, 1);
+    --secondaty-text-color:hsla(180, 8%, 52%, 1);
+    --background-color:hsla(180, 52%, 96%, 1);
+    --font-family: 'Spartan', sans-serif;
+}
+
+
+*,*::before,*::after{
+    padding: 0;margin: 0;
+    
+}
+
+html{
+    font-size:62.5%;
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+}
+
+.card{
+    background-color: #FFF;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    display: flex;
+    // flex-wrap: wrap;
+    flex-direction: column;
+
+    &__content{
+        margin-left: 2.4rem;
+    }
+    &__prefix{
+        
+        display: flex;
+        margin: 3rem 0 1.5rem 0;
+    }
+    &__subtitle{
+        display: flex;        
+    }
+    &__subtitle p:not(:first-child){
+        margin-left: 3rem;
+    }
+    &__filters{
+        display: flex;
+        
+    }
+}
+.btn__filter{
+    padding: 1rem;
+    background-color:var(--secondary-color);
+    border-radius: 2px;
+    font-family:  'Spartan', sans-serif;
+
+}
+.badge{
+
+}
