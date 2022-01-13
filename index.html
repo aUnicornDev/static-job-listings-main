@@ -14,20 +14,24 @@
 <body>
 
   <main class="filteredList">
-    <div>
-      <span v-for = "filter in appliedFilters" class="badge">{{filter}}<button @click = "removeFilter(filter)">X</button></span>
+    <div class = "filter-input" v-if = "appliedFilters.length">
+      <div class="filtered">
+        <span v-for = "filter in appliedFilters" class="btn__filter btn--close">{{filter}}</span>
+      </div>
+      <div class="span">Clear</div>
     </div>
     <div v-for="job in filteredJobs" class="card">
+      <img :src="job.logo" alt="" class="card__logo">
       <div class="card__content">
         <div class="card__prefix">
 
           <h3 class="company">
             {{job.company}}
           </h3>
-          <div class="badge badge--new">
+          <div class="badge badge--new" v-if="job.new">
             New!
           </div>
-          <div class="badge badge--featured">
+          <div class="badge badge--featured" v-if="job.featured">
             Featured
           </div>
         </div>

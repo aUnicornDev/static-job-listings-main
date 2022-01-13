@@ -29,7 +29,7 @@ const jobList = {
         },
         removeFilter(filter){
             
-            
+            //remove pop... only removes last filter
             this.appliedFilters.pop(filter)
             
         }
@@ -40,13 +40,13 @@ const jobList = {
         addJobFilters(){
             console.log(this.jobs)
             this.jobs.forEach(job=>{
-                job.filters = [];
-                job.filters.push(job.role);
-                job.filters.push(job.level);
-                job.filters=job.filters.concat(job.languages);
-                job.filters=job.filters.concat(job.tools);
-                
-
+                // job.filters = [];
+                // job.filters.push(job.role);
+                // job.filters.push(job.level);
+                // job.filters=job.filters.concat(job.languages);
+                // job.filters=job.filters.concat(job.tools);
+                job.filters = [job.role,job.level,...job.languages,...job.tools]
+                console.log(job.filters)
             })
         },
         filteredJobs(){
