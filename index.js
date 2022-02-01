@@ -29,10 +29,21 @@ const jobList = {
         },
         removeFilter(filter){
             
-            //remove pop... only removes last filter
-            this.appliedFilters.pop(filter)
+            this.appliedFilters.splice(this.appliedFilters.indexOf(filter),1)
             
+        },
+        clearAllFilters(){
+            this.appliedFilters = [];
+        },
+        getTopMargin(){
+            console.log("what th ehelel");
+            let style = {marginTop:"0px"}
+            if (this.appliedFilters.length){
+                style.marginTop = "10rem";
+            }
+            return style;
         }
+
 
     }
     ,
@@ -46,7 +57,7 @@ const jobList = {
                 // job.filters=job.filters.concat(job.languages);
                 // job.filters=job.filters.concat(job.tools);
                 job.filters = [job.role,job.level,...job.languages,...job.tools]
-                console.log(job.filters)
+                // console.log(job.filters)
             })
         },
         filteredJobs(){

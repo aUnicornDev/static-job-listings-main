@@ -14,56 +14,69 @@
 <body>
 
   <main class="filteredList">
-    <div class = "filter-input" v-if = "appliedFilters.length">
-      <div class="filtered">
-        <span v-for = "filter in appliedFilters" class="btn__filter btn--close">{{filter}}</span>
-      </div>
-      <div class="span">Clear</div>
-    </div>
-    <div v-for="job in filteredJobs" class="card">
-      <img :src="job.logo" alt="" class="card__logo">
-      <div class="card__content">
-        <div class="card__prefix">
-
-          <h3 class="company">
-            {{job.company}}
-          </h3>
-          <div class="badge badge--new" v-if="job.new">
-            New!
-          </div>
-          <div class="badge badge--featured" v-if="job.featured">
-            Featured
-          </div>
-        </div>
-        <h2 class="card__title">
-          {{job.position}}
-        </h2>
-        <div class="card__subtitle">
-          <p>
-            {{job.postedAt}}
-
-          </p>
-          <p>
-            {{job.contract}}
-
-          </p>
-          <p>
-            {{job.location}}
-
-          </p>
-        </div>
-      </div>
+    <section class="hero-bg">
       
-     
-      <div class= "card__filters">
-        <span v-for="filter in job.filters" class = "btn__filter" @click = "applyFilter(filter)">{{filter}}</span>
+      <div class="filter-input__wrapper">
+        <div class = "filter-input" v-if = "appliedFilters.length">
+        <div class="all-filters">
+          <span class="filtered" v-for = "filter in appliedFilters">
+            <span class="btn__filter btn__filter--filtered">{{filter}}</span>
+            <button class="btn__close" @click ="removeFilter(filter)"><img src="./images/icon-remove.svg" alt="">
+            </button>
+          </span>
+        </div>
+        <div class="clear-filter" @click = "clearAllFilters">Clear</div>
       </div>
+    </section>
+
     </div>
-  </main>
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+    <section :style="getTopMargin()">
+
+      <div v-for="job in filteredJobs" class="card" :class="{ 'card-featured':job.featured}">
+        <img :src="job.logo" alt="" class="card__logo">
+        <div class="card__content">
+          <div class="card__prefix">
+            
+            <h3 class="company">
+              {{job.company}}
+            </h3>
+            <div class="badge badge--new" v-if="job.new">
+              New!
+            </div>
+            <div class="badge badge--featured" v-if="job.featured">
+              Featured
+            </div>
+          </div>
+          <h2 class="card__title">
+            {{job.position}}
+          </h2>
+          <div class="card__subtitle">
+            <p>
+              {{job.postedAt}}
+              
+            </p>
+            <p>
+              {{job.contract}}
+              
+            </p>
+            <p>
+              {{job.location}}
+              
+            </p>
+          </div>
+        </div>
+        
+        
+        <div class= "card__filters">
+          <span v-for="filter in job.filters" class = "btn__filter btn__filter--hover" @click = "applyFilter(filter)">{{filter}}</span>
+        </div>
+      </div>
+    </section>
+    </main>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Your Name Here</a>.
+    </div>
 <script src="https://unpkg.com/vue@next"></script>
   
   <script src="./index.js"></script>
