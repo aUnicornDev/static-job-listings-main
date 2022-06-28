@@ -37,6 +37,13 @@ html {
   background-size: 100%;
 }
 
+@media (min-width: 900px) {
+  .hero-bg {
+    height: 15rem;
+    background: url(./images/bg-header-desktop.svg), var(--primary-color) no-repeat;
+  }
+}
+
 .card {
   background-color: #FFF;
   margin: 4rem 2.4rem;
@@ -53,6 +60,15 @@ html {
           flex-direction: column;
 }
 
+@media (min-width: 900px) {
+  .card {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
 .card__logo {
   width: 4.8rem;
   position: absolute;
@@ -60,8 +76,26 @@ html {
   left: 2.4rem;
 }
 
+@media (min-width: 900px) {
+  .card__logo {
+    width: 10rem;
+    margin-left: 4rem;
+    height: 10rem;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    position: static;
+  }
+}
+
 .card__content {
   margin-left: 2.4rem;
+}
+
+@media (min-width: 900px) {
+  .card__content {
+    margin-left: 2.6rem;
+  }
 }
 
 .card__prefix {
@@ -75,11 +109,18 @@ html {
           align-items: baseline;
 }
 
+@media (min-width: 900px) {
+  .card__prefix {
+    margin: 4rem 0 1rem 0;
+  }
+}
+
 .card__title {
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   margin-bottom: 1.6rem;
   color: var(--primary-text-color);
   cursor: pointer;
+  font-weight: 700;
 }
 
 .card__title:hover {
@@ -96,6 +137,12 @@ html {
   color: var(--secondary-text-color);
 }
 
+@media (min-width: 900px) {
+  .card__subtitle {
+    margin-bottom: 3rem;
+  }
+}
+
 .card__subtitle:after {
   content: "";
   width: 100%;
@@ -104,6 +151,12 @@ html {
   position: absolute;
   bottom: -2rem;
   margin-top: 4rem;
+}
+
+@media (min-width: 900px) {
+  .card__subtitle:after {
+    display: none;
+  }
 }
 
 .card__subtitle p:not(:first-child) {
@@ -132,6 +185,12 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media (min-width: 900px) {
+  .card__filters {
+    margin-left: auto;
+  }
 }
 
 .btn__filter {
@@ -194,6 +253,12 @@ html {
   text-transform: uppercase;
 }
 
+@media (min-width: 900px) {
+  .badge {
+    font-size: 1.2rem;
+  }
+}
+
 .badge--new {
   background-color: var(--primary-color);
 }
@@ -204,8 +269,14 @@ html {
 
 .company {
   margin-right: 1.6rem;
-  font-weight: 500;
+  font-weight: 700;
   color: var(--primary-color);
+}
+
+@media (min-width: 900px) {
+  .company {
+    font-size: 1.2rem;
+  }
 }
 
 .filter-input {
